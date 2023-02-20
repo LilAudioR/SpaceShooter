@@ -29,11 +29,11 @@ CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos, sf::Vector2f ve
 
 void CGameObject::Tick()
 {
-	sprite.setPosition(position.x, position.y);
 }
 
 void CGameObject::Draw(sf::RenderWindow& window)
 {
+	sprite.setPosition(position.x, position.y);
 	window.draw(sprite);
 }
 
