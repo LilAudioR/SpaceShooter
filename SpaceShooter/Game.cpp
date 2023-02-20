@@ -12,6 +12,8 @@ void CGame::Run()
 
 	while (window.isOpen())
 	{
+		window.clear(sf::Color(0, 150, 255));
+
 		sf::Event E;
 		while(window.pollEvent(E))
 		// TICK LOOP
