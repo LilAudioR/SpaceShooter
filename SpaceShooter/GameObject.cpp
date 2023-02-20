@@ -6,6 +6,7 @@ CGameObject::CGameObject()
 	sprite.setTexture(texture);
 	position = sf::Vector2f(0.0f, 0.0f);
 	velocity = sf::Vector2f(0.0f, 0.0f);
+	MakeCollider();
 }
 
 CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos)
@@ -14,6 +15,7 @@ CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos)
 	sprite.setTexture(texture);
 	position = pos;
 	velocity = sf::Vector2f(0.0f, 0.0f);
+	MakeCollider();
 }
 
 CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos, sf::Vector2f vel)
@@ -22,6 +24,7 @@ CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos, sf::Vector2f ve
 	sprite.setTexture(texture);
 	position = pos;
 	velocity = vel;
+	MakeCollider();
 }
 
 void CGameObject::Tick()
@@ -57,4 +60,9 @@ void CGameObject::SetVelocity(sf::Vector2f vel) {
 Ccollider* CGameObject::GetCollider()
 {
 	return &collider;
+}
+
+void CGameObject::MakeCollider()
+{
+	Ccollider(std::max(sprite.getLocalBounds().height, sprite.getLocalBounds().width) / 2.f);
 }
