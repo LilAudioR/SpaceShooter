@@ -1,6 +1,6 @@
 #include "Player.h"
 
-CPlayer::CPlayer() : CGameObject()//pass texture for player (string to look for png)
+CPlayer::CPlayer() : CGameObject("Assets\\Pingu.png", {0,0}) //pass texture for player (string to look for png)
 {
 
 }

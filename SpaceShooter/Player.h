@@ -11,5 +11,5 @@ public:
 	CPlayer();
 	virtual void Tick() override;
 protected:
-	float _speed;
+	float _speed = 50;
 };
