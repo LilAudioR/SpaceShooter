@@ -1,11 +1,11 @@
-#include "Game.h"
+﻿#include "Game.h"
 #include "Player.h"
 
 void CGame::Run()
 {
 	videoMode.width = 800u;
 	videoMode.height = 800u;
-	window.create(videoMode, "UFO Game");
+	window.create(videoMode, "Operation: Protect Pingu From The Aliens That Are Trying To Abduct Him");
 
 	CPlayer player;
 	actors.push_back(&player);
