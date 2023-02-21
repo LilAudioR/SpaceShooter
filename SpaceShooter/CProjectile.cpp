@@ -32,5 +32,9 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
   {
     //CODE HERE TO DESTRUCT THE PROJECTILE
   }
+}
+
+void CProjectile::Tick()
+{
 
 }
