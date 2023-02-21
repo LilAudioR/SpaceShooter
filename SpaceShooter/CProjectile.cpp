@@ -36,5 +36,5 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
 
 void CProjectile::Tick()
 {
-
+  position -= velocity;
 }
