@@ -4,16 +4,20 @@
 
 void CGame::Run()
 {
-	videoMode.width = 800u;
-	videoMode.height = 800u;
+	videoMode.width = 1300u;
+	videoMode.height = 850u;
 	window.create(videoMode, "Operation: Protect Pingu From The Aliens That Are Trying To Abduct Him");
+	sf::Texture t;
+	t.loadFromFile("Assets\\bg.png");
+	sf::Sprite s(t);
 
 	CPlayer player;
 	actors.push_back(&player);
 
 	while (window.isOpen())
 	{
-		window.clear(sf::Color(0, 150, 255));
+		window.clear(sf::Color::White);
+		window.draw(s);
 
 		sf::Event E;
 		while(window.pollEvent(E))
@@ -43,7 +47,6 @@ void CGame::Run()
 		{
 			actors[i]->Draw(window);
 		}
-
 		window.display();
 	}
 }

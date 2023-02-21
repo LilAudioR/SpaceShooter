@@ -4,5 +4,5 @@
 class CPingu : CGameObject 
 {
 public:
-	CPingu()
+	CPingu();
 };
