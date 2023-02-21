@@ -1,6 +1,6 @@
 #include "Player.h"
 
-CPlayer::CPlayer() : CGameObject("Assets\\Pingu.png", {0,0}) //pass texture for player (string to look for png)
+CPlayer::CPlayer() : CGameObject("Assets\\shipYellow_manned.png", {0,0}) //pass texture for player (string to look for png)
 {
 
 }
@@ -26,6 +26,11 @@ void CPlayer::Tick()
     {
         //MOVE RIGHT
         position.x += _speed;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+        //FIRE PROJECTILE
+        FiringProjectile = true;
     }
 }
 
