@@ -142,6 +142,7 @@
     <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CProjectile.cpp" />
+    <ClCompile Include="CRectangleCollider.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CProjectile.h" />
+    <ClInclude Include="CRectangleCollider.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Health.h" />

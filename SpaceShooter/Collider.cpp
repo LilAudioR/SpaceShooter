@@ -1,4 +1,5 @@
 #include "Collider.h"
+#include "CRectangleCollider.h"
 
 Ccollider::Ccollider()
   : radius(0.f)

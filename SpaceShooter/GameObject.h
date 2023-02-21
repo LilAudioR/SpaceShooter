@@ -30,6 +30,8 @@ public:
 	void SetVelocity(float, float);
 	void SetVelocity(sf::Vector2f);
 
+	bool IsColliding(CGameObject*);
+	bool IsCrossing(CGameObject*);
 
 
 protected:

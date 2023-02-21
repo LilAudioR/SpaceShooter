@@ -38,3 +38,9 @@ void CProjectile::Tick()
 {
   position -= velocity;
 }
+
+void CProjectile::Explode()
+{
+    texture.loadFromFile("Assets/laserYellow_burst.png");
+    sprite.setTexture(texture);
+}

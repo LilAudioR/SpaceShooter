@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "CRectangleCollider.h"
 
 CGameObject::CGameObject()
 {
@@ -55,6 +56,25 @@ void CGameObject::SetVelocity(float x, float y) {
 }
 void CGameObject::SetVelocity(sf::Vector2f vel) {
 	velocity = vel;
+}
+
+bool CGameObject::IsColliding(CGameObject* other)
+{
+	CRectangleCollider* rect = dynamic_cast<CRectangleCollider*>(other->GetCollider());
+	if (rect)
+	{
+		return GetPosition().x < rect->x ||
+			GetPosition().x + sprite.getGlobalBounds().width < rect->x + other->sprite.getGlobalBounds().width ||
+			GetPosition().y < rect->y ||
+			GetPosition().y + sprite.getGlobalBounds().height < rect->y + other->sprite.getGlobalBounds().height;
+	}
+	sf::Vector2f lv = GetPosition() - (other->GetPosition());
+	return std::sqrt(lv.x * lv.x + lv.y * lv.y) < GetCollider()->GetRadius() + other->GetCollider()->GetRadius();
+}
+
+bool CGameObject::IsCrossing(CGameObject* other)
+{
+	return false;
 }
 
 Ccollider* CGameObject::GetCollider()
