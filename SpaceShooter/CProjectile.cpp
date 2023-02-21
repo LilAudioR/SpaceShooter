@@ -37,19 +37,10 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
 void CProjectile::Tick()
 {
   position -= velocity;
-  CheckForOutOfBounds();
 }
 
-void CProjectile::CheckForOutOfBounds()
+void CProjectile::Explode()
 {
-  float BoundSize = 2000;
-  if (position.y > BoundSize || position.y < -1 * BoundSize || position.x > BoundSize || position.x < -1 * BoundSize)
-  {
-    PendingDeath = true;
-  }
-}
-
-float CProjectile::GetDamage()
-{
-  return Damage;
+    texture.loadFromFile("Assets/laserYellow_burst.png");
+    sprite.setTexture(texture);
 }
