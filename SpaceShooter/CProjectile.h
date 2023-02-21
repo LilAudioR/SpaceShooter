@@ -9,6 +9,7 @@ public:
   CProjectile(int _damage);
   CProjectile(sf::Vector2f, sf::Vector2f);
   void CollisionOverlap(CGameObject* _other) override;
+  void Tick() override;
 
 private:
   float Damage;

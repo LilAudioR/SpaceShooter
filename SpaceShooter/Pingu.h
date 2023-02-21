@@ -1,8 +1,12 @@
 #pragma once
 #include "GameObject.h"
 
-class CPingu : CGameObject 
+class CPingu : public CGameObject 
 {
 public:
 	CPingu();
+	void Tick() override;
+	virtual void CollisionOverlap(CGameObject* _other);
+protected:
+	float _moveSpeed = 20;
 };

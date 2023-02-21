@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 #include "Player.h"
 #include "CProjectile.h"
+#include "Pingu.h"
 
 void CGame::Run()
 {
@@ -11,14 +12,13 @@ void CGame::Run()
 	t.loadFromFile("Assets\\bg.png");
 	sf::Sprite s(t);
 
+	CPingu pingu;
 	CPlayer player;
 	actors.push_back(&player);
+	actors.push_back(&pingu);
 
 	while (window.isOpen())
 	{
-		window.clear(sf::Color::White);
-		window.draw(s);
-
 		sf::Event E;
 		while(window.pollEvent(E))
 
@@ -42,11 +42,15 @@ void CGame::Run()
 			}
 		}
 
+		window.clear(sf::Color::White);
+		window.draw(s);
+
 		// DRAW LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
 			actors[i]->Draw(window);
 		}
+
 		window.display();
 	}
 }
