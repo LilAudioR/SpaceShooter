@@ -23,6 +23,12 @@ void CGame::Run()
 		for (int i = 0; i < actors.size(); i++)
 		{
 			actors[i]->Tick();
+			if(actors[i]->PendingDeath)
+			{
+				delete actors[i];
+				actors.erase(actors.begin()+i);
+				i--;
+			}
 		}
 
 		sf::Event E;

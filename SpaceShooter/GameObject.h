@@ -20,6 +20,7 @@ public:
 	void MakeCollider();
 	virtual void CollisionOverlap(CGameObject* _other) = 0;
 	bool CollisionFlag = false;
+	bool PendingDeath = false;
 	Ccollider* GetCollider();
 
 
