@@ -1,5 +1,6 @@
 ﻿#include "Game.h"
 #include "Player.h"
+#include "CProjectile.h"
 
 void CGame::Run()
 {
@@ -16,10 +17,25 @@ void CGame::Run()
 
 		sf::Event E;
 		while(window.pollEvent(E))
+
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
 			actors[i]->Tick();
+		}
+
+		// ADD NEW OBJECTS LOOP
+		for (int i = 0; i < actors.size(); i++)
+		{
+			CPlayer* p = dynamic_cast<CPlayer*>(actors[i]);
+			if (p)
+			{
+				if (p->FiringProjectile)
+				{
+					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 5.0f)));
+					p->FiringProjectile = false;
+				}
+			}
 		}
 
 		// DRAW LOOP
