@@ -27,9 +27,9 @@ CGameObject::CGameObject(std::string FilePath, sf::Vector2f pos, sf::Vector2f ve
 	MakeCollider();
 }
 
-void CGameObject::Tick()
+/*void CGameObject::Tick()
 {
-}
+}*/
 
 void CGameObject::Draw(sf::RenderWindow& window)
 {
