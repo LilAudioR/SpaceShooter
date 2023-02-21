@@ -19,6 +19,18 @@ void CGame::Run()
 
 	while (window.isOpen())
 	{
+		window.clear(sf::Color::White);
+		window.draw(s);
+
+		sf::Event E;
+		while(window.pollEvent(E))
+
+		sf::Event E;
+		while(window.pollEvent(E))
+
+		sf::Event E;
+		while(window.pollEvent(E))
+
 		sf::Event E;
 		while(window.pollEvent(E))
 
@@ -26,7 +38,16 @@ void CGame::Run()
 		for (int i = 0; i < actors.size(); i++)
 		{
 			actors[i]->Tick();
+			if(actors[i]->PendingDeath)
+			{
+				delete actors[i];
+				actors.erase(actors.begin()+i);
+				i--;
+			}
 		}
+
+		sf::Event E;
+		while(window.pollEvent(E))
 
 		// ADD NEW OBJECTS LOOP
 		for (int i = 0; i < actors.size(); i++)
@@ -36,7 +57,7 @@ void CGame::Run()
 			{
 				if (p->FiringProjectile)
 				{
-					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 5.0f)));
+					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1.0f)));
 					p->FiringProjectile = false;
 				}
 			}
