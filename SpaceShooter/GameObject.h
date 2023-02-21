@@ -17,7 +17,11 @@ public:
 	virtual void Tick();
 	virtual void Draw(sf::RenderWindow&); //Draw loop needs to take an sf::RenderWindow reference
 
+	void MakeCollider();
+	virtual void CollisionOverlap(CGameObject* _other) = 0;
 	bool CollisionFlag = false;
+	Ccollider* GetCollider();
+
 
 	sf::Vector2f GetPosition();
 	void SetPosition(float, float);
@@ -26,7 +30,7 @@ public:
 	void SetVelocity(float, float);
 	void SetVelocity(sf::Vector2f);
 
-	Ccollider* GetCollider();
+
 
 protected:
 	sf::Texture texture;
