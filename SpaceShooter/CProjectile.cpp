@@ -48,3 +48,8 @@ void CProjectile::CheckForOutOfBounds()
     PendingDeath = true;
   }
 }
+
+float CProjectile::GetDamage()
+{
+  return Damage;
+}

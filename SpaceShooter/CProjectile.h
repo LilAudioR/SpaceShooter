@@ -11,6 +11,7 @@ public:
   void CollisionOverlap(CGameObject* _other) override;
   void Tick() override;
   void CheckForOutOfBounds();
+  float GetDamage();
 
 
 private:
