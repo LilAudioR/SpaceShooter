@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "CEnemy.h"
 #include <typeinfo>
 
 class CProjectile : public CGameObject

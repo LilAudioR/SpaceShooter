@@ -27,10 +27,10 @@ CProjectile::CProjectile(sf::Vector2f pos, sf::Vector2f vel)
 
 void CProjectile::CollisionOverlap(CGameObject* _other)
 {
-  CGameObject* temp_enemy = dynamic_cast<CGameObject*>(_other); //REPLACE THIS WITH CENEMY ONCE WE HAVE IT
-  if (temp_enemy)
+  CEnemy* enemy = dynamic_cast<CEnemy*>(_other);
+  if (enemy)
   {
-    //CODE HERE TO DESTRUCT THE PROJECTILE
+    PendingDeath = true;
   }
 }
 

@@ -1,7 +1,7 @@
 #include "CEnemy.h"
 
 CEnemy::CEnemy()
-  : CGameObject("Assets\\shipPinkd.png", { 0,0 }), health(CHealth(100))
+  : CGameObject("Assets\\shipPinkd.png", { 0,0 }), health(100)
 {
 }
 
