@@ -22,18 +22,6 @@ void CGame::Run()
 		window.clear(sf::Color::White);
 		window.draw(s);
 
-		sf::Event E;
-		while(window.pollEvent(E))
-
-		sf::Event E;
-		while(window.pollEvent(E))
-
-		sf::Event E;
-		while(window.pollEvent(E))
-
-		sf::Event E;
-		while(window.pollEvent(E))
-
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
