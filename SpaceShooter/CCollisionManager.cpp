@@ -19,7 +19,7 @@ void CCollisionManager::CheckCollisions()
         if (CalcDistance(actors[i], actors[j]) < actors[i]->GetCollider()->GetRadius() + actors[j]->GetCollider()->GetRadius())
         {
           actors[i]->CollisionOverlap(actors[j]);
-          actors[j]->CollisionOverlap(actors[j]);
+          actors[j]->CollisionOverlap(actors[i]);
         }
       
       }

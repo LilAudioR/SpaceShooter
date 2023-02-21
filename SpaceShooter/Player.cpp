@@ -28,3 +28,7 @@ void CPlayer::Tick()
         position.x += _speed;
     }
 }
+
+void CPlayer::CollisionOverlap(CGameObject* _other)
+{
+}

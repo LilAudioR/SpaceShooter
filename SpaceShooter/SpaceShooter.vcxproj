@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CCollisionManager.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,6 +148,7 @@
     <ClCompile Include="Health.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />

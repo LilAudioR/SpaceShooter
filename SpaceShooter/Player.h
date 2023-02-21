@@ -10,6 +10,7 @@ class CPlayer : public CGameObject
 public:
 	CPlayer();
 	virtual void Tick() override;
+	void CollisionOverlap(CGameObject* _other) override;
 protected:
 	float _speed = 50;
 };
