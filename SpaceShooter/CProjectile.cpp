@@ -1,5 +1,5 @@
 #include "CProjectile.h"
-
+#include <iostream>
 
 CProjectile::CProjectile()
   : CGameObject("Assets/laserYellow1.png", {0, 0}), Damage(10.0)
@@ -30,13 +30,17 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
   CEnemy* enemy = dynamic_cast<CEnemy*>(_other);
   if (enemy)
   {
-    PendingDeath = true;
+    //PendingDeath = true;
+      Explode();
+      velocity = { 0, 0 };
   }
+  
 }
 
 void CProjectile::Tick(float dt)
 {
   position -= velocity * dt;
+  //std::cout << collider->GetRadius() << std::endl;
 }
 
 void CProjectile::Explode()
