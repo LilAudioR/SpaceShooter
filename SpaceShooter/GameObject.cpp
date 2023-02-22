@@ -3,7 +3,7 @@
 
 CGameObject::CGameObject()
 {
-	texture.loadFromFile("Assets/Pingu.png");
+	texture.loadFromFile("Assets/bg.png");
 	sprite.setTexture(texture);
 	position = sf::Vector2f(0.0f, 0.0f);
 	velocity = sf::Vector2f(0.0f, 0.0f);

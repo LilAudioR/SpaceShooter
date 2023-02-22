@@ -8,5 +8,5 @@ public:
 	void Tick() override;
 	virtual void CollisionOverlap(CGameObject* _other);
 protected:
-	float _moveSpeed = 20;
+	float _moveSpeed = 0.1;
 };

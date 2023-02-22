@@ -2,25 +2,26 @@
 #include "Player.h"
 #include "CProjectile.h"
 #include "Pingu.h"
+#include "Background.h"
 
 void CGame::Run()
 {
 	videoMode.width = 1300u;
 	videoMode.height = 850u;
 	window.create(videoMode, "Operation: Protect Pingu From The Aliens That Are Trying To Abduct Him");
-	sf::Texture t;
-	t.loadFromFile("Assets\\bg.png");
-	sf::Sprite s(t);
+	//sf::Texture t;
+	//t.loadFromFile("Assets\\bg.png");
+	//sf::Sprite s(t);
 
 	CPingu pingu;
 	CPlayer player;
+	CBackground backgroud;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
 
 	while (window.isOpen())
 	{
 		window.clear(sf::Color::White);
-		window.draw(s);
 
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
@@ -50,10 +51,7 @@ void CGame::Run()
 				}
 			}
 		}
-
-		window.clear(sf::Color::White);
-		window.draw(s);
-
+		backgroud.Draw(window);
 		// DRAW LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
