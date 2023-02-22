@@ -18,6 +18,7 @@ void CGame::Run()
 	CPingu pingu;
 	CPlayer player;
 	CEnemy enemy;
+	enemy.SetPingu(pingu);
 	CBackground backgroud;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
