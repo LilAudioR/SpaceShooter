@@ -34,9 +34,9 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
   }
 }
 
-void CProjectile::Tick()
+void CProjectile::Tick(float dt)
 {
-  position -= velocity;
+  position -= velocity * dt;
 }
 
 void CProjectile::Explode()

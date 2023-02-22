@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "CProjectile.h"
 #include "Pingu.h"
+//#include <vector>
 
 void CGame::Run()
 {
@@ -11,21 +12,27 @@ void CGame::Run()
 	sf::Texture t;
 	t.loadFromFile("Assets\\bg.png");
 	sf::Sprite s(t);
+	sf::Clock timer;
 
 	CPingu pingu;
 	CPlayer player;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
 
+
 	while (window.isOpen())
 	{
+
+		float deltaTime = timer.getElapsedTime().asSeconds();
+		timer.restart();
+
 		window.clear(sf::Color::White);
 		window.draw(s);
 
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
-			actors[i]->Tick();
+			actors[i]->Tick(deltaTime);
 			if(actors[i]->PendingDeath)
 			{
 				delete actors[i];
@@ -49,7 +56,7 @@ void CGame::Run()
 			{
 				if (p->FiringProjectile)
 				{
-					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1.0f)));
+					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
 					p->FiringProjectile = false;
 				}
 			}

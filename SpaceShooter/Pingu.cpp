@@ -6,7 +6,7 @@ CPingu::CPingu() : CGameObject("Assets\\Pingu.png", { 550,600 })
 	sprite.setScale(0.3f, 0.3f);
 }
 
-void CPingu::Tick()
+void CPingu::Tick(float dt)
 {
 }
 
