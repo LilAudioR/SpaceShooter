@@ -14,8 +14,8 @@ void CCollisionManager::CheckCollisions()
   {
     for (int j = i+1; j < size; j++)
     {
-      if(actors[i]->CollisionFlag == true && actors[j]->CollisionFlag == true)
-      {
+      //if(actors[i]->CollisionFlag == true && actors[j]->CollisionFlag == true)
+      //{
         //if (CalcDistance(actors[i], actors[j]) < actors[i]->GetCollider()->GetRadius() + actors[j]->GetCollider()->GetRadius())
         if (actors[i]->IsColliding(actors[j]))
         {
@@ -23,7 +23,7 @@ void CCollisionManager::CheckCollisions()
           actors[j]->CollisionOverlap(actors[i]);
         }
       
-      }
+      //}
     }
   }
 

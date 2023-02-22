@@ -2,7 +2,10 @@
 #include "Player.h"
 #include "CProjectile.h"
 #include "Pingu.h"
+#include "CEnemy.h"
+#include <vector>
 #include "Background.h"
+
 
 void CGame::Run()
 {
@@ -13,9 +16,12 @@ void CGame::Run()
 
 	CPingu pingu;
 	CPlayer player;
+	CEnemy enemy;
 	CBackground backgroud;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
+	actors.push_back(&enemy);
+
 	CreateProjectileBuffer(64);
 
 	while (window.isOpen())
