@@ -22,7 +22,7 @@ void CGame::Run()
 	actors.push_back(&pingu);
 	actors.push_back(&enemy);
 
-	CreateProjectileBuffer(64);
+	CreateProjectileBuffer(256);
 
 	while (window.isOpen())
 	{
@@ -59,8 +59,9 @@ void CGame::Run()
 			{
 				if (p->FiringProjectile)
 				{
-					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
-					p->FiringProjectile = false;
+					//actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
+					//p->FiringProjectile = false;
+					UpdateProjectileBuffer(p);
 				}
 			}
 		}
@@ -78,7 +79,6 @@ void CGame::Run()
 void CGame::CreateProjectileBuffer(int buffer_size)
 {
 	CProjectile* projectilePtr = new CProjectile[buffer_size];
-	std::queue<CProjectile*> projectile_buffer;
 
 	for (int i = 0; i < buffer_size; i++)
 	{
@@ -87,3 +87,14 @@ void CGame::CreateProjectileBuffer(int buffer_size)
 		actors.push_back(&projectilePtr[i]);
 	}
 }
+
+void CGame::UpdateProjectileBuffer(CPlayer* p)
+{
+	projectile_buffer.push(projectile_buffer.front());
+	projectile_buffer.back()->SetPosition(p->GetPosition());
+	projectile_buffer.back()->SetVelocity(0.0f, 1000.0f);
+	projectile_buffer.pop();
+	//actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
+	p->FiringProjectile = false;
+}
+
