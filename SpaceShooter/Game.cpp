@@ -22,7 +22,7 @@ void CGame::Run()
 	actors.push_back(&pingu);
 	actors.push_back(&enemy);
 
-	CreateProjectileBuffer(256);
+	CreateProjectileBuffer();
 
 	while (window.isOpen())
 	{
@@ -76,15 +76,14 @@ void CGame::Run()
 	}
 }
 
-void CGame::CreateProjectileBuffer(int buffer_size)
+void CGame::CreateProjectileBuffer()
 {
-	CProjectile* projectilePtr = new CProjectile[buffer_size];
 
-	for (int i = 0; i < buffer_size; i++)
+	for (int i = 0; i < projectile_buffer_size; i++)
 	{
-		projectile_buffer.push(&projectilePtr[i]);
-		projectilePtr[i].SetPosition(-5000, -5000);
-		actors.push_back(&projectilePtr[i]);
+		projectile_buffer.push(&projectiles[i]);
+		projectiles[i].SetPosition(-5000, -5000);
+		actors.push_back(&projectiles[i]);
 	}
 }
 

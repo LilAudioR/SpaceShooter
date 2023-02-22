@@ -12,12 +12,14 @@ class CGame
 {
 public:
 	void Run(); //Game loop goes here
-	void CreateProjectileBuffer(int buffer_size);
+	void CreateProjectileBuffer();
 	void UpdateProjectileBuffer(CPlayer* _player);
 
 private:
 	sf::RenderWindow window;
 	sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
 	std::vector<CGameObject*> actors;
+	constexpr static int projectile_buffer_size = 64;
+	CProjectile projectiles[projectile_buffer_size];
 	std::queue<CProjectile*> projectile_buffer;
 };
