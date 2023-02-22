@@ -6,7 +6,7 @@ CEnemy::CEnemy()
 {
 }
 
-void CEnemy::Tick() {
+void CEnemy::Tick(float dt) {
     std::cout << "Enemy HP: " << health.GetHealth() << std::endl;
     //std::cout << "Enemy radius: " << collider->GetRadius() << std::endl;
 }

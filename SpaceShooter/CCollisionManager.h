@@ -6,13 +6,13 @@ class CCollisionManager
 {
 public:
   
-  CCollisionManager(std::vector<CGameObject*> _actors); 
+  CCollisionManager(std::vector<CGameObject*> &_actors); 
 
   void CheckCollisions();
   float CalcDistance(CGameObject* actor1, CGameObject* actor2);
 
 private:
-  std::vector<CGameObject*> actors;
+  std::vector<CGameObject*> &actors;
 };
 
 

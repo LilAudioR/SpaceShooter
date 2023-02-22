@@ -14,7 +14,7 @@ public:
 	CGameObject(std::string, sf::Vector2f);
 	CGameObject(std::string, sf::Vector2f, sf::Vector2f);
 
-	virtual void Tick() = 0;
+	virtual void Tick(float deltaTime) = 0;
 	virtual void Draw(sf::RenderWindow&); //Draw loop needs to take an sf::RenderWindow reference
 
 	void MakeCollider();

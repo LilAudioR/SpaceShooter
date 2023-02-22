@@ -1,6 +1,6 @@
 #include "CCollisionManager.h"
 
-CCollisionManager::CCollisionManager(std::vector<CGameObject*> _actors)
+CCollisionManager::CCollisionManager(std::vector<CGameObject*> &_actors)
   : actors(_actors)
 {
 }
