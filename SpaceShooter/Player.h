@@ -14,6 +14,8 @@ public:
 	virtual void Tick(float deltaTime) override;
 	void CollisionOverlap(CGameObject* _other) override;
 	bool FiringProjectile = false;
+
 protected:
 	float _speed = 300;
+	bool CanFire = true;
 };

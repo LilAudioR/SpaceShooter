@@ -27,10 +27,16 @@ void CPlayer::Tick(float dt)
         //MOVE RIGHT
         position.x += _speed * dt;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && CanFire)
     {
         //FIRE PROJECTILE
         FiringProjectile = true;
+        CanFire = false;
+      
+    }
+    else if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+      CanFire = true;
     }
 }
 

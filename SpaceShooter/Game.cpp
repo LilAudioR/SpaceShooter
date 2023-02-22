@@ -94,7 +94,6 @@ void CGame::UpdateProjectileBuffer(CPlayer* p)
 	projectile_buffer.back()->SetPosition(p->GetPosition());
 	projectile_buffer.back()->SetVelocity(0.0f, 1000.0f);
 	projectile_buffer.pop();
-	//actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
 	p->FiringProjectile = false;
 }
 
