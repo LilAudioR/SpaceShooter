@@ -5,27 +5,27 @@ CPlayer::CPlayer() : CGameObject("Assets\\shipYellow_manned.png", {0,0}) //pass 
 
 }
 
-void CPlayer::Tick()
+void CPlayer::Tick(float dt)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         //MOVE UP
-        position.y -= _speed;
+        position.y -= _speed * dt;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         //MOVE DOWN
-        position.y += _speed;
+        position.y += _speed * dt;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         //MOVE LEFT
-        position.x -= _speed;
+        position.x -= _speed * dt;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         //MOVE RIGHT
-        position.x += _speed;
+        position.x += _speed * dt;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {

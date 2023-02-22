@@ -9,24 +9,27 @@ void CGame::Run()
 	videoMode.width = 1300u;
 	videoMode.height = 850u;
 	window.create(videoMode, "Operation: Protect Pingu From The Aliens That Are Trying To Abduct Him");
-	//sf::Texture t;
-	//t.loadFromFile("Assets\\bg.png");
-	//sf::Sprite s(t);
+	sf::Clock timer;
 
 	CPingu pingu;
 	CPlayer player;
 	CBackground backgroud;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
+	CreateProjectileBuffer(64);
 
 	while (window.isOpen())
 	{
+
+		float deltaTime = timer.getElapsedTime().asSeconds();
+		timer.restart();
+
 		window.clear(sf::Color::White);
 
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
-			actors[i]->Tick();
+			actors[i]->Tick(deltaTime);
 			if(actors[i]->PendingDeath)
 			{
 				delete actors[i];
@@ -36,7 +39,11 @@ void CGame::Run()
 		}
 
 		sf::Event E;
-		while(window.pollEvent(E))
+		while (window.pollEvent(E))
+		{
+			if (E.type == sf::Event::Closed)
+				window.close();
+		}
 
 		// ADD NEW OBJECTS LOOP
 		for (int i = 0; i < actors.size(); i++)
@@ -46,7 +53,7 @@ void CGame::Run()
 			{
 				if (p->FiringProjectile)
 				{
-					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1.0f)));
+					actors.push_back(new CProjectile(p->GetPosition(), sf::Vector2f(0.0f, 1000.0f)));
 					p->FiringProjectile = false;
 				}
 			}
@@ -59,5 +66,18 @@ void CGame::Run()
 		}
 
 		window.display();
+	}
+}
+
+void CGame::CreateProjectileBuffer(int buffer_size)
+{
+	CProjectile* projectilePtr = new CProjectile[buffer_size];
+	std::queue<CProjectile*> projectile_buffer;
+
+	for (int i = 0; i < buffer_size; i++)
+	{
+		projectile_buffer.push(&projectilePtr[i]);
+		projectilePtr[i].SetPosition(-5000, -5000);
+		actors.push_back(&projectilePtr[i]);
 	}
 }

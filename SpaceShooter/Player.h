@@ -11,9 +11,9 @@ class CPlayer : public CGameObject
 {
 public:
 	CPlayer();
-	virtual void Tick() override;
+	virtual void Tick(float deltaTime) override;
 	void CollisionOverlap(CGameObject* _other) override;
 	bool FiringProjectile = false;
 protected:
-	float _speed = 0.1;
+	float _speed = 300;
 };
