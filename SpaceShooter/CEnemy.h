@@ -7,7 +7,7 @@ class CEnemy : public CGameObject
 {
 public:
   CEnemy();
-  void Tick() override;
+  void Tick(float) override;
   void CollisionOverlap(CGameObject* _other) override;
 
 private:
