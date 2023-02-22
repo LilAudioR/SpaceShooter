@@ -18,7 +18,7 @@ void CGame::Run()
 	CPlayer player;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
-
+	CreateProjectileBuffer(64);
 
 	while (window.isOpen())
 	{
@@ -72,5 +72,18 @@ void CGame::Run()
 		}
 
 		window.display();
+	}
+}
+
+void CGame::CreateProjectileBuffer(int buffer_size)
+{
+	CProjectile* projectilePtr = new CProjectile[buffer_size];
+	std::queue<CProjectile*> projectile_buffer;
+
+	for (int i = 0; i < buffer_size; i++)
+	{
+		projectile_buffer.push(&projectilePtr[i]);
+		projectilePtr[i].SetPosition(-5000, -5000);
+		actors.push_back(&projectilePtr[i]);
 	}
 }
