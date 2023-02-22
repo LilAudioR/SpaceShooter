@@ -30,7 +30,7 @@ void CProjectile::CollisionOverlap(CGameObject* _other)
   CEnemy* enemy = dynamic_cast<CEnemy*>(_other);
   if (enemy)
   {
-    //PendingDeath = true;
+      PendingDeath = true;
       Explode();
       velocity = { 0, 0 };
   }
