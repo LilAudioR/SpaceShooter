@@ -35,7 +35,11 @@ void CGame::Run()
 		}
 
 		sf::Event E;
-		while(window.pollEvent(E))
+		while (window.pollEvent(E))
+		{
+			if (E.type == sf::Event::Closed)
+				window.close();
+		}
 
 		// ADD NEW OBJECTS LOOP
 		for (int i = 0; i < actors.size(); i++)
