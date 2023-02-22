@@ -9,4 +9,5 @@ public:
 	virtual void CollisionOverlap(CGameObject* _other);
 protected:
 	float _moveSpeed = 0.1;
+	float _totalTime = 0;
 };

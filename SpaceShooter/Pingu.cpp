@@ -8,14 +8,25 @@ CPingu::CPingu() : CGameObject("Assets\\Pingu.png", { 550,600 })
 
 void CPingu::Tick(float dt)
 {
+	_totalTime += dt;
+	float calculatedXPos;
+	float totalWaddleTime = 2.0f;
 
+	if (_totalTime > totalWaddleTime)
+	{
+		_totalTime -= totalWaddleTime;
+	}
+
+	float percentageOfWaddle = _totalTime / totalWaddleTime;
+	float waddleOffset = 100;
+	float windowMiddlePos = 550;
+
+	calculatedXPos = sinf(2 * 3.141f * percentageOfWaddle) * waddleOffset;
 
 	//move pingu position
-	sprite.setPosition(position.x += _moveSpeed, 0);
+	SetPosition(calculatedXPos + windowMiddlePos, 600);
 
-	//print location
-	sf::Vector2f position = sprite.getPosition();
-	std::cout << position.x << " " << position.y << "\n";
+	sprite.setRotation(sinf(8 * 3.141f * percentageOfWaddle) * 10);
 }
 
 void CPingu::CollisionOverlap(CGameObject* _other)

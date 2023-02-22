@@ -5,7 +5,7 @@ CBackground::CBackground() : CGameObject()
 
 }
 
-void CBackground::Tick()
+void CBackground::Tick(float dt)
 {
 
 }
