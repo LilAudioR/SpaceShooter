@@ -1,11 +1,15 @@
 #include "CEnemy.h"
+#include <iostream>
 
 CEnemy::CEnemy()
-  : CGameObject("Assets\\shipPinkd.png", { 0,0 }), health(100)
+  : CGameObject("Assets\\shipPink_manned.png", { 300, 100 }), health(100)
 {
 }
 
-
+void CEnemy::Tick() {
+    std::cout << "Enemy HP: " << health.GetHealth() << std::endl;
+    //std::cout << "Enemy radius: " << collider->GetRadius() << std::endl;
+}
 
 void CEnemy::CollisionOverlap(CGameObject* _other)
 {
@@ -18,6 +22,7 @@ void CEnemy::CollisionOverlap(CGameObject* _other)
     {
       PendingDeath = true;
     }
+    
   }
 }
 

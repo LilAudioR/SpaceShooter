@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CCollisionManager.cpp" />
+    <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CProjectile.cpp" />
     <ClCompile Include="CRectangleCollider.cpp" />
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCollisionManager.h" />
+    <ClInclude Include="CEnemy.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CProjectile.h" />
     <ClInclude Include="CRectangleCollider.h" />

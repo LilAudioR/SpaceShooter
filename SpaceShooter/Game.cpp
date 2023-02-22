@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "CProjectile.h"
 #include "Pingu.h"
+#include "CEnemy.h"
 
 void CGame::Run()
 {
@@ -14,8 +15,10 @@ void CGame::Run()
 
 	CPingu pingu;
 	CPlayer player;
+	CEnemy enemy;
 	actors.push_back(&player);
 	actors.push_back(&pingu);
+	actors.push_back(&enemy);
 
 	while (window.isOpen())
 	{

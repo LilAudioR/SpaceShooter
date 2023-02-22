@@ -3,6 +3,7 @@
 CHealth::CHealth(int maxHealth)
 {
     _maxHealth = maxHealth;
+    _currentHealth = _maxHealth;
 }
 
 bool CHealth::StillAlive()
@@ -18,3 +19,14 @@ void CHealth::TakeDamage(int damage)
 {
     _currentHealth -= damage; 
 }
+
+int CHealth::GetMaxHealth()
+{
+    return _maxHealth;
+}
+
+int CHealth::GetHealth()
+{
+    return _currentHealth;
+}
+

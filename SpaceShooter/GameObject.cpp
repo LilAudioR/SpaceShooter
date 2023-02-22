@@ -79,10 +79,11 @@ bool CGameObject::IsCrossing(CGameObject* other)
 
 Ccollider* CGameObject::GetCollider()
 {
-	return &collider;
+	return collider;
 }
 
 void CGameObject::MakeCollider()
 {
-	Ccollider(std::max(sprite.getLocalBounds().height, sprite.getLocalBounds().width) / 2.f);
+	//Ccollider(std::max(sprite.getLocalBounds().height, sprite.getLocalBounds().width) / 2.f);
+	collider = new Ccollider(std::max(sprite.getLocalBounds().height, sprite.getLocalBounds().width) / 2.f);
 }
