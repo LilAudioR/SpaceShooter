@@ -5,6 +5,7 @@
 #include "CEnemy.h"
 #include <vector>
 #include "Background.h"
+#include "CCollisionManager.h"
 
 
 void CGame::Run()
@@ -22,6 +23,7 @@ void CGame::Run()
 	actors.push_back(&pingu);
 	actors.push_back(&enemy);
 
+	CCollisionManager manager(actors);
 	CreateProjectileBuffer();
 
 	while (window.isOpen())
@@ -32,14 +34,16 @@ void CGame::Run()
 
 		window.clear(sf::Color::White);
 
+		manager.CheckCollisions();
+
 		// TICK LOOP
 		for (int i = 0; i < actors.size(); i++)
 		{
 			actors[i]->Tick(deltaTime);
 			if(actors[i]->PendingDeath)
 			{
-				delete actors[i];
-				actors.erase(actors.begin()+i);
+				CGameObject* temp = actors[i];
+				actors.erase(actors.begin() + i);
 				i--;
 			}
 		}
