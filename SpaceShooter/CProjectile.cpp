@@ -44,3 +44,8 @@ void CProjectile::Explode()
     texture.loadFromFile("Assets/laserYellow_burst.png");
     sprite.setTexture(texture);
 }
+
+float CProjectile::GetDamage()
+{
+  return Damage;
+}
